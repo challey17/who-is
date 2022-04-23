@@ -12,15 +12,17 @@ const domain = {
   valid: true,
   isp: "testing",
 };
-app.get("/domain", (req, res) => {
+app.get("/domain/:url", (req, res) => {
+  const { url } = req.params;
+
   axios
-    .get("http://ip-api.com/json/chayceknaub.com")
+    .get(`http://ip-api.com/json/${url}`)
     .then((response) => {
       console.log(response.data.status);
       console.log(response.data);
       res.json(response.data);
     })
-    // .then(res.json(response.data.data))
+
     .catch((error) => {
       console.log(error);
     });
