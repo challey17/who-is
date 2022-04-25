@@ -8,10 +8,6 @@ app.get("/", (req, res) => {
   res.send("yo");
 });
 
-const domain = {
-  valid: true,
-  isp: "testing",
-};
 app.get("/domain/:url", (req, res) => {
   const { url } = req.params;
 
